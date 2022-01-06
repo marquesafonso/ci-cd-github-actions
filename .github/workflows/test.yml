@@ -6,4 +6,10 @@ jobs:
     steps:
       - run: echo "hello world!!"
       - run: echo "this is step number 2"
+  print-hello-world-2:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "hello world 2!!"
+      - run: echo "this is step number 2 of job 2"
+      
   
