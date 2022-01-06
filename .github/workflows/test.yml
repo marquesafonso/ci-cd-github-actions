@@ -5,8 +5,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello world!!"
-      - run: echo "this is step number 2"
-  print-hello-world-2:
+      - run: echo "this is step number 2" # the commands are run sequentially
+  print-hello-world-2: # the jobs do not run sequentially but in parallel
     runs-on: ubuntu-latest
     steps:
       - run: echo "hello world 2!!"
