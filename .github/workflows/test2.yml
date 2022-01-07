@@ -26,10 +26,10 @@ jobs:
         run: yarn deploy
       - name: Setup Finish
         run: echo "hooray!!"
-    test-app:
-      needs: build-app # setting up dependent actions: test needs build to finish first
-      runs-on: ubuntu-latest
-      steps:
-        - run: echo "testing..."
+  test-app:
+    needs: build-app # setting up dependent actions: test needs build to finish first
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "testing..."
   
      
