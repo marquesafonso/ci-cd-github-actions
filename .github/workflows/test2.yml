@@ -9,9 +9,9 @@ jobs:
         with:
           node-version: 14
       - name: Instal node modules
-        run: yarn 
+        run: yarn
       - name: Build the project
-        run: yarn start
+        run: yarn build
       - name: Setup Finish
         run: echo "hooray!!"
      
