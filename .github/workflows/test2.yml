@@ -3,6 +3,9 @@ on: [push]
 jobs:
   build-app:
      runs-on: ubuntu-latest
+     env:
+          projectId: ${{ secrets.PROJECTID }}
+          orgId: ${{ secrets.ORGID }}
      steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v2
@@ -12,6 +15,14 @@ jobs:
         run: yarn
       - name: Build the project
         run: yarn build
+      - name: Setup vercel env vars
+        run: |
+          cd build
+          mkdir .vercel
+          touch project.json
+          echo "{\"projecId\": \"$projectId\", \"orgId\": \"OrgId\" }" > project.json
+      - name: Deploying proj
+        run: yarn deploy
       - name: Setup Finish
         run: echo "hooray!!"
      
