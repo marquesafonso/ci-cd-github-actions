@@ -1,8 +1,10 @@
 name: Build the App Action
 on: [push]
 jobs:
-  build-app:
+  buildApp:
      runs-on: ubuntu-latest
+     outputs:
+      text: ${{ steps.finished.outputs.text }}
      env:
           projectId: ${{ secrets.PROJECTID }}
           orgId: ${{ secrets.ORGID }}
@@ -25,11 +27,14 @@ jobs:
       - name: Deploying proj
         run: yarn deploy
       - name: Setup Finish
-        run: echo "hooray!!"
+        id: finished
+        run: echo "::set-ouput name=text::hello-world-from-build-job"
   test-app:
-    needs: build-app # setting up dependent actions: test needs build to finish first
+    needs: buildApp # setting up dependent actions: test needs build to finish first
     runs-on: ubuntu-latest
+    env:
+      MY_JOB_OUTPUT: ${{ needs.buildApp.outputs.text }}
     steps:
-      - run: echo "testing..."
+      - run: echo $MY_JOB_OUTPUT
   
      
