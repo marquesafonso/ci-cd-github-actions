@@ -1,3 +1,5 @@
+[![Build the App Action](https://github.com/marquesafonso/ci-cd-github-actions/actions/workflows/test2.yml/badge.svg)](https://github.com/marquesafonso/ci-cd-github-actions/actions/workflows/test2.yml)
+
 # ci-cd-github-actions
 
 This repo is where I followed **codedamn's** CI/CD With GitHub Actions course (https://codedamn.com/learn/github-actions-ci-cd).
