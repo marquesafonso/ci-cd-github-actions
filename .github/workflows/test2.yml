@@ -28,7 +28,7 @@ jobs:
         run: yarn deploy
       - name: Setup Finish
         id: finished
-        run: echo "::set-ouput name=text::hello-world-from-build-job"
+        run: echo "::set-output name=text::hello-world-from-build-job"
   test-app:
     needs: buildApp # setting up dependent actions: test needs build to finish first
     runs-on: ubuntu-latest
